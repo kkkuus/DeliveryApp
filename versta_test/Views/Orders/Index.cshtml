@@ -1,0 +1,72 @@
+@model IEnumerable<versta_test.Models.Order>
+
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h2>ЗАКАЗЫ</h2>
+
+<p>
+    <a asp-action="Create">Создать новый заказ</a>
+</p>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Город отправителя
+        </th>
+        <th>
+            Адрес отправителя
+        </th>
+        <th>
+            Город получателя
+        </th>
+        <th>
+            Адрес получателя
+        </th>
+        <th>
+            Вес груза
+        </th>
+        <th>
+            Дата забора груза
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <a asp-action="Details" asp-route-id="@item.Id">
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SenderCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SenderAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiverCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceiverAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PickupDate)
+        </td>
+        <td>
+            <a asp-action="Details" asp-route-id="@item.Id"> Детали </a>
+        </td>
+        
+    </tr>
+        </a>
+    }
+    </tbody>
+</table>

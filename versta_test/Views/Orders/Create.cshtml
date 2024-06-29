@@ -1,0 +1,47 @@
+@model versta_test.Models.Order
+
+@{
+    ViewData["Title"] = "Create Order";
+}
+
+<h2>Создать заказ</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="SenderCity" class="control-label">Город отправителя</label>
+        <input asp-for="SenderCity" class="form-control" />
+        <span asp-validation-for="SenderCity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SenderAddress" class="control-label">Адрес отправителя</label>
+        <input asp-for="SenderAddress" class="form-control" />
+        <span asp-validation-for="SenderAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReceiverCity" class="control-label">Город получателя</label>
+        <input asp-for="ReceiverCity" class="form-control" />
+        <span asp-validation-for="ReceiverCity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ReceiverAddress" class="control-label">Адрес получтеля</label>
+        <input asp-for="ReceiverAddress" class="form-control" />
+        <span asp-validation-for="ReceiverAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Weight" class="control-label">Вес груза</label>
+        <input asp-for="Weight" class="form-control" />
+        <span asp-validation-for="Weight" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PickupDate" class="control-label">Дата забора груза</label>
+        <input asp-for="PickupDate" class="form-control" />
+        <span asp-validation-for="PickupDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Создать заказ" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Вернуться к списку заказов</a>
+</div>
